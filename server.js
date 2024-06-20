@@ -52,7 +52,7 @@ app.get("*", (req, res) => {
   );
 });
 
-app.post("/register", upload.none(), async (req, res) => {
+app.post("/register", upload.single("profilePic"), async (req, res) => {
   //console.log(req.file);
   //console.log(req.body);
   try {
@@ -63,6 +63,7 @@ app.post("/register", upload.none(), async (req, res) => {
       email: req.body.email,
       password: req.body.password,
       mobileNo: req.body.mobileNo,
+      profilePic: req.file.path,
     });
 
     await User.insertMany([newUser]);

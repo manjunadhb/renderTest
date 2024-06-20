@@ -22,7 +22,7 @@ function Signup() {
     dataToSend.append("mobileNo", mobileNoInputRef.current.value);
 
     for (let i = 0; i < profilePicInputRef.current.files.length; i++) {
-      //dataToSend.append("profilePic", profilePicInputRef.current.files[i]);
+      dataToSend.append("profilePic", profilePicInputRef.current.files[i]);
     }
 
     let reqOptions = {
